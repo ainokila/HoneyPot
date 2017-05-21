@@ -5,7 +5,7 @@ Tras instalar un honeypot en la red y dejandolo funcionar durante 12 horas, ha r
 Una vez obtenida las ip, generé el siguiente script para obtener la informacion de cada una de las ips:
 
 ```php
-	<?php 
+<?php 
 
 	function analize($file){
 		$token ="add token here";
@@ -59,7 +59,7 @@ Una vez obtenida las ip, generé el siguiente script para obtener la informacion
 	}
 
 
-	?> 
+?> 
  ```
 
 
