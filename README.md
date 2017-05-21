@@ -1,11 +1,11 @@
 # HoneyResult
 
-Tras instalar un honeypot en la red y dejandolo funcionar durante 12 horas, ha recibido 27.936 intentos de entrada.
+After installing a honeypot on the network and running for 12 hours, it has received 27,936 incoming attempts.
 
-Una vez obtenida las ip, generé el siguiente script para obtener la informacion de cada una de las ips:
+With the ip obtained I generated the script to analyze them
 
 ```php
-<?php 
+<?php
 
 	function analize($file){
 		$token ="add token here";
@@ -21,7 +21,7 @@ Una vez obtenida las ip, generé el siguiente script para obtener la informacion
 				));
 				$result = curl_exec($curl);
 
-				if (curl_errno($curl)){ 
+				if (curl_errno($curl)){
 	   				echo "Ha ocurrido un error con curl", PHP_EOL;
 				}else{
 					//echo $result;
@@ -46,7 +46,7 @@ Una vez obtenida las ip, generé el siguiente script para obtener la informacion
 		    echo PHP_EOL;
 		} else {
 	    	echo "Error al obtener el manejador", PHP_EOL;
-		} 
+		}
 	}
 
 
@@ -59,16 +59,14 @@ Una vez obtenida las ip, generé el siguiente script para obtener la informacion
 	}
 
 
-?> 
+?>
  ```
 
-
-
-Ejecute una muestra aleatoria de 1000 resultados, redirigiendo la salida del script y procesando cada uno de los json obtuvimos el siguiente mapa:
+Run a random sample of 1000 results, redirecting the output of the script and processing each of the json we obtained the following map:
 
 ![Mapa de ataque](img/mapimage.png)
 
-El mapa se puede visitar en este [enlace](https://drive.google.com/open?id=1x3u8aQ7zDJLjcv6KsoDhqRmmMNs&usp=sharing)
+The map can be visited in this [link](https://drive.google.com/open?id=1x3u8aQ7zDJLjcv6KsoDhqRmmMNs&usp=sharing)
 
-* [Tabla de  1000](tabla.md)
-* [Conjunto global de ips](ip.md)
+* [Table of  1000 ip](tabla.md)
+* [All ips](ip.md)
