@@ -4,62 +4,63 @@ Tras instalar un honeypot en la red y dejandolo funcionar durante 12 horas, ha r
 
 Una vez obtenida las ip, generé el siguiente script para obtener la informacion de cada una de las ips:
 
+```php
+	<?php 
 
-		<?php 
+	function analize($file){
+		$token ="add token here";
+		$handle = fopen($file, "r");
+		if ($handle) {
+		    while (($line = fgets($handle)) !== false) {
+		        //echo "$line";
 
-		function analize($file){
-			$token ="add token here";
-			$handle = fopen($file, "r");
-			if ($handle) {
-			    while (($line = fgets($handle)) !== false) {
-			        //echo "$line";
+		        $curl = curl_init();
+				curl_setopt_array($curl, array(
+		    		CURLOPT_RETURNTRANSFER => 1,
+		    		CURLOPT_URL => "http://ipinfo.io/$line/json?token=$token",
+				));
+				$result = curl_exec($curl);
 
-			        $curl = curl_init();
-					curl_setopt_array($curl, array(
-			    		CURLOPT_RETURNTRANSFER => 1,
-			    		CURLOPT_URL => "http://ipinfo.io/$line/json?token=$token",
-					));
-					$result = curl_exec($curl);
+				if (curl_errno($curl)){ 
+	   				echo "Ha ocurrido un error con curl", PHP_EOL;
+				}else{
+					//echo $result;
+					$json = $result;
+					$json = json_decode($json, true);
+					echo $json['ip'],";";
+					echo $json['city'],";";
+					echo $json['region'],";";
+					echo $json['country'],";";
+					echo $json['loc'],PHP_EOL;;
 
-					if (curl_errno($curl)){ 
-		   				echo "Ha ocurrido un error con curl", PHP_EOL;
-					}else{
-						//echo $result;
-						$json = $result;
-						$json = json_decode($json, true);
-						echo $json['ip'],";";
-						echo $json['city'],";";
-						echo $json['region'],";";
-						echo $json['country'],";";
-						echo $json['loc'],PHP_EOL;;
-
-					}
-
-
-					curl_close($curl);
+				}
 
 
-
-			    }
-
-			    fclose($handle);
-			    echo PHP_EOL;
-			} else {
-		    	echo "Error al obtener el manejador", PHP_EOL;
-			} 
-		}
+				curl_close($curl);
 
 
 
+		    }
 
-		if(isset($argv[1])){
-			analize($argv[1]);
-		}else{
-			echo "Debes aniadir el fichero a leer", PHP_EOL;
-		}
+		    fclose($handle);
+		    echo PHP_EOL;
+		} else {
+	    	echo "Error al obtener el manejador", PHP_EOL;
+		} 
+	}
 
 
-		?>
+
+
+	if(isset($argv[1])){
+		analize($argv[1]);
+	}else{
+		echo "Debes aniadir el fichero a leer", PHP_EOL;
+	}
+
+
+	?> 
+ ```
 
 
 
