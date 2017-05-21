@@ -1,7 +1,7 @@
 # <p style="text-align: center;">HONEYPOTS </p> #
 ----------
 
-<p align="center">  <img src="./figuras/Figura_1.PNG" alt="Figura 1" width="400"> </p>
+<p align="center">  <img src="./figuras/Figura_1.png" alt="Figura 1" width="400"> </p>
 
 <p align="right">
 Este trabajo ha sido realizado por:
