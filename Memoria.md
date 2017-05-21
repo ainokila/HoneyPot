@@ -210,7 +210,7 @@ En la siguiente figura se puede observar el funcionamiento del script. Para que 
 
 Tras dejar Artillery funcionando unas horas registramos miles de intentos de acceso. Los procesamos todos con el script para poder guardarlos en un archivo csv y crear un mapa con todos los ataques a través de My Maps de Google, el resultado fue el siguiente:
 
-<p align="center">  <img src="./figuras/Figura_11.PNG" alt="Figura 11"> </p>
+<p align="center">  <img src="./figuras/Figura_11.png" alt="Figura 11"> </p>
 
 En él podemos observar de forma más global desde donde provienen los intentos de acceso, aunque son tantos los que hemos recibido que se solapan unos con otros. Desde la web, cuando creamos el mapa, podemos acercarnos o alejarnos de forma interactiva a las zonas que más nos interesen, de forma que se vea más claro.
 
